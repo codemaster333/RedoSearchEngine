@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,8 +26,8 @@ public class SearchEngine extends JFrame {
 		
 		JFrame frame = new JFrame();
 		frame.setTitle("Search Engine");
-		frame.setSize(600, 600);
-		frame.setResizable(false);
+		frame.setSize(720, 720);
+		frame.setResizable(true);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar= new JMenuBar();
@@ -34,25 +36,35 @@ public class SearchEngine extends JFrame {
 		JMenu fileMenu = new JMenu("File");
 		menuBar.add(fileMenu);
 		
-		JMenu optionMenu = new JMenu("Option");
-		menuBar.add(optionMenu);
+		JMenuItem option = new JMenuItem("Option");
+		fileMenu.add(option);
 		
-		JMenu helpMenu = new JMenu("help");
-		menuBar.add(helpMenu);
+		JMenuItem help = new JMenuItem("Help");
+		fileMenu.add(help);
+		
 		
 		
 		frame.setLayout(new BorderLayout());
 		
 		
 		JPanel searchBarPanel = new JPanel();
+		//searchBarPanel.setLayout(new FlowLayout());
 		frame.add(searchBarPanel, BorderLayout.NORTH);
 		
-		JLabel search = new JLabel();
+		
+		JLabel searchTerms = new JLabel("Search Terms:   ");
+		searchBarPanel.add(searchTerms);
+		
+		JTextField search = new JTextField("", 45);
 		searchBarPanel.add(search);
 		
+		JButton searchButton = new JButton("Search");
+		searchBarPanel.add(searchButton);
 		
 		
-
+		JTextArea resultArea = new JTextArea();
+		resultArea.setEditable(false);
+		frame.add(resultArea, BorderLayout.CENTER);
 		
 		
 		
